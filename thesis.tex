@@ -1,0 +1,35 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{vietnam}
+\usepackage[paper=a4paper,top=3cm,left=3.5cm,right=2cm,bottom=3cm]{geometry}	% Dùng để set margin
+\usepackage{graphicx}			% Dùng để chèn hình ảnh 
+\graphicspath{ {images/} }		% Folder chứa hình ảnh
+\usepackage{subfiles}			% Dùng để chia thành các files nhỏ
+\usepackage{fancyhdr}			% Dùng để tạo header và footer
+
+\title{Nghiên cứu giáo dục Việt Nam Cộng Hoà}
+\author{Dương Lữ Điện}
+
+% Header và footer 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Giảng viên hướng dẫn:\\TS. ABCXYZ}
+\lhead{Đề tài:\\Nghiên cứu giáo dục Việt Nam Cộng Hoà}
+\rfoot{\thepage}
+\lfoot{Dương Lữ Điện - B1401133}
+
+\begin{document}
+
+\subfile{bia-ngoai}
+\subfile{bia-trong}
+
+\pagenumbering{roman}
+\chapter*{NHẬN XÉT CỦA GIẢNG VIÊN}
+\chapter*{LỜI CẢM ƠN}
+\tableofcontents
+\chapter{GIỚI THIỆU}
+\pagenumbering{arabic}
+\subfile{chapters/chapter01}
+\chapter{TRIẾT LÝ GIÁO DỤC}
+\subfile{chapters/chapter02}
+
+\end{document}
