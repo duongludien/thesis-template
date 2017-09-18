@@ -1,35 +1,45 @@
 \documentclass[a4paper,12pt]{report}
 \usepackage[utf8]{vietnam}
-\usepackage[paper=a4paper,top=3cm,left=3.5cm,right=2cm,bottom=3cm]{geometry}	% Dùng để set margin
+\usepackage[top=3cm,left=3.5cm,right=2cm,bottom=3cm]{geometry}	% Dùng để set margin
 \usepackage{graphicx}			% Dùng để chèn hình ảnh 
 \graphicspath{ {images/} }		% Folder chứa hình ảnh
 \usepackage{subfiles}			% Dùng để chia thành các files nhỏ
 \usepackage{fancyhdr}			% Dùng để tạo header và footer
+\usepackage{listings}			% Dùng để chèn source code vào luận văn
 
-\title{Nghiên cứu giáo dục Việt Nam Cộng Hoà}
-\author{Dương Lữ Điện}
+% Định dạng source code
+\lstset{
+	basicstyle=\small\ttfamily, 	% Font family và font size 
+	numbers=left,					% Hiển thị số thứ tự dòng				
+	tabsize=4,						% Tab size 
+	frame=leftline,					% Hiển thị 1 gạch bên tay trái source code 
+	xleftmargin=1cm					% Set margin-left 
+}
+
+\title{Nghiên cứu giáo dục Việt Nam Cộng Hoà}	% Tiêu đề luận văn
+\author{Dương Lữ Điện}							% Người thực h
 
 % Header và footer 
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{Giảng viên hướng dẫn:\\TS. ABCXYZ}
-\lhead{Đề tài:\\Nghiên cứu giáo dục Việt Nam Cộng Hoà}
-\rfoot{\thepage}
-\lfoot{Dương Lữ Điện - B1401133}
+\rhead{Giảng viên hướng dẫn:\\TS. ABCXYZ}					% Header bên phải
+\lhead{Đề tài:\\Nghiên cứu giáo dục Việt Nam Cộng Hoà}		% Header bên trái 
+\rfoot{\thepage}					% Footer bên phải
+\lfoot{Dương Lữ Điện - B1401133}	% Footer bên trái
 
 \begin{document}
 
-\subfile{bia-ngoai}
-\subfile{bia-trong}
+\subfile{bia-ngoai}		% Gọi file bìa ngoài
+\subfile{bia-trong}		% Gọi file bìa trong
 
-\pagenumbering{roman}
+\pagenumbering{roman}	% Kiểu số trang: i, ii, iii, iv, v,...
 \chapter*{NHẬN XÉT CỦA GIẢNG VIÊN}
 \chapter*{LỜI CẢM ƠN}
 \tableofcontents
 \chapter{GIỚI THIỆU}
-\pagenumbering{arabic}
-\subfile{chapters/chapter01}
+\pagenumbering{arabic}	% Kiểu số trang: 1, 2, 3,...
+\subfile{chapters/chapter01}	% Gọi file chương 1, tương tự gọi các chương khác
 \chapter{TRIẾT LÝ GIÁO DỤC}
-\subfile{chapters/chapter02}
+\subfile{chapters/chapter02}	% Gọi file chương 2, tương tự gọi các chương khác
 
 \end{document}
