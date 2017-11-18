@@ -1,45 +1,92 @@
-\documentclass[a4paper,12pt,twoside]{report}
+\documentclass[a4paper,12pt,twoside,openright]{report}	% twoside, openright: 2 mặt, trang đầu chương luôn nằm bên tay phải
 \usepackage[utf8]{vietnam}
-\usepackage[top=3cm,inner=3.5cm,outer=2cm,bottom=3cm]{geometry}	% Dùng để set margin
+\usepackage[top=3cm,inner=3.5cm,outer=2cm,bottom=3cm,headheight=120pt]{geometry}		% Dùng để set margin
 \usepackage{graphicx}			% Dùng để chèn hình ảnh 
 \graphicspath{ {images/} }		% Folder chứa hình ảnh
 \usepackage{subfiles}			% Dùng để chia thành các files nhỏ
 \usepackage{fancyhdr}			% Dùng để tạo header và footer
 \usepackage{listings}			% Dùng để chèn source code vào luận văn
+\usepackage{emptypage}			% Không đánh số trang, header, footer với các trang trắng
 
-% Định dạng source code
-\lstset{
+% Định dạng mặc định cho source code
+\lstset {
 	basicstyle=\small\ttfamily, 	% Font family và font size 
 	numbers=left,					% Hiển thị số thứ tự dòng				
 	tabsize=4,						% Tab size 
 	frame=leftline,					% Hiển thị 1 gạch bên tay trái source code 
-	xleftmargin=1cm					% Set margin-left 
+	xleftmargin=1cm,				% Set margin-left 
+	breaklines=true,
 }
 
-\title{Nghiên cứu giáo dục Việt Nam Cộng Hoà}	% Tiêu đề luận văn
-\author{Dương Lữ Điện}							% Người thực hiện 
+% Tạo một style tên là code để định dạng source code
+\lstdefinestyle{code}{
+	basicstyle=\small\ttfamily, 	% Font family và font size 
+	numbers=left,					% Hiển thị số thứ tự dòng				
+	tabsize=4,						% Tab size 
+	frame=leftline,					% Hiển thị 1 gạch bên tay trái source code 
+	xleftmargin=1cm,				% Set margin-left 
+	breaklines=true,
+}
+
+% Tạo một style tên là link để đặt các liên kết trong báo cáo
+\lstdefinestyle{link}{
+	basicstyle=\small\ttfamily,
+	numbers=none,
+	tabsize=4,
+	frame=single,
+	xleftmargin=0.15cm,
+	xrightmargin=0.15cm,
+	breaklines=true,
+}
+
+\usepackage{tabularx}			% Dùng để chèn bảng
+
+% Hiển thị dòng kẻ để viết tay (phần Nhận xét của giảng viên)
+\usepackage{pgffor, ifthen}
+\newcommand{\notes}[3][\empty]{
+	\noindent \vspace{15pt}\\
+	\foreach \n in {1,...,#2}{
+		\ifthenelse{\equal{#1}{\empty}}
+			{\rule{#3}{0.5pt}\vspace{15pt}\\}
+			{\rule{#3}{0.5pt}\vspace{15pt}\\}
+		}
+	}
+
+\title{Google Cloud Translation API}	% Tiêu đề luận văn
+\author{Dương Lữ Điện}					% Người thực hiện 
 
 % Header và footer 
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{Giảng viên hướng dẫn:\\TS. ABCXYZ}					% Header bên phải
-\lhead{Đề tài:\\Nghiên cứu giáo dục Việt Nam Cộng Hoà}		% Header bên trái 
+\rhead{Giảng viên hướng dẫn:\\Học hàm. Học vị. Họ tên}			% Header bên phải
+\lhead{Đề tài:\\Tên đề tài}			% Header bên trái 
 \rfoot{\thepage}					% Footer bên phải
-\lfoot{Dương Lữ Điện - B1401133}	% Footer bên trái
+\lfoot{Tên sinh viên - Mã sinh viên}	% Footer bên trái
 
 \begin{document}
-
 \subfile{bia-ngoai}		% Gọi file bìa ngoài
 \subfile{bia-trong}		% Gọi file bìa trong
 
 \pagenumbering{roman}	% Kiểu số trang: i, ii, iii, iv, v,...
+
 \chapter*{NHẬN XÉT CỦA GIẢNG VIÊN}
+\subfile{chapters/nhan-xet-gv}
+
 \chapter*{LỜI CẢM ƠN}
+\subfile{chapters/loi-cam-on}
+
 \tableofcontents
-\chapter{GIỚI THIỆU}
-\pagenumbering{arabic}	% Kiểu số trang: 1, 2, 3,...
+\listoffigures
+\listoftables
+
+\chapter{Tiêu đề chương 1}
+\pagenumbering{arabic}			% Kiểu số trang: 1, 2, 3,...
 \subfile{chapters/chapter01}	% Gọi file chương 1, tương tự gọi các chương khác
-\chapter{TRIẾT LÝ GIÁO DỤC}
-\subfile{chapters/chapter02}	% Gọi file chương 2, tương tự gọi các chương khác
+
+\chapter{Tiêu đề chương 2}
+\subfile{chapters/chapter02}
+
+\chapter*{THAM KHẢO}
+\subfile{chapters/tham-khao}
 
 \end{document}
