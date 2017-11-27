@@ -6,43 +6,21 @@ Nội dung chương 1.
 
 Cách chèn link:
 
-\begin{lstlisting}[style=link]
+\begin{Verbatim}
 https://console.cloud.google.com/freetrial
-\end{lstlisting}
+\end{Verbatim}
 
 Cách chèn source code:
 
-\begin{lstlisting}[style=code]
+\begin{Verbatim}
 #include <stdio.h>
 
 int main() {
 	printf("hello, world!\n");
 	return 0;
 }
-\end{lstlisting}
+\end{Verbatim}
 
-Đây là \lstinline{source code} trong đoạn văn.
-
-Cách sử dụng bảng:
-
-\begin{center}
-\begin{tabularx}{\textwidth}{|p{0.15\textwidth}|X|}
-\hline
-\lstinline{target} & \textbf{string}
-
-Ngôn ngữ của kết quả mà ta muốn nhận được (Ví dụ: en). Nếu \lstinline{target} được xác định thì tên của các ngôn ngữ sẽ được trả về trong trường \lstinline{name}. Ngược lại, ta chỉ nhận được mã ISO-639-1 của chúng.\\
-\hline
-\lstinline{model} & \textbf{string}
-
-Mô hình dịch. Nếu tham số này có giá trị là \lstinline{base} thì kết quả trả về sẽ là các ngôn ngữ được hỗ trợ bởi mô hình Phrase-Based Machine Translation (PBMT), hoặc \lstinline{nmt} thì kết quả trả về ngôn ngữ được hỗ trợ bởi mô hình Neural Machine Translation (NMT). Nếu bỏ qua tham số này, tất cả các ngôn ngữ được hỗ trợ sẽ được trả về trong kết quả.
-
-Mô hình NMT chỉ hỗ trợ khi ngôn ngữ nguồn hoặc đích là tiếng Anh (en).\\
-\hline
-\lstinline{key} & \textbf{string}
-
-API key. Nếu sử dụng OAuth 2.0 thì không cần tham số này.\\
-\hline
-\end{tabularx}
-\end{center}
+Đây là \texttt{source code} trong đoạn văn.
 	
 \end{document}

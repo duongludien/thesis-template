@@ -1,67 +1,69 @@
-\documentclass[a4paper,12pt,twoside,openright]{report}	% twoside, openright: 2 mặt, trang đầu chương luôn nằm bên tay phải
+% Mẫu luận văn ĐHCT soạn thảo bằng LaTeX, phiên bản 1.0
+% ====================================================================
+% Tác giả: 				Dương Lữ Điện
+% Website:				www.duongludien.com
+% GitHub repository:	https://github.com/duongludien/thesis-template
+% ====================================================================
+
+% twoside, openright: 2 mặt, trang đầu chương luôn nằm bên tay phải
+% \documentclass[a4paper,12pt,twoside,openright]{report}	
+
+% oneside: 1 mặt
+\documentclass[a4paper,12pt,oneside]{report}	% oneside: 1 mặt
+
+% Tiếng Việt
 \usepackage[utf8]{vietnam}
-\usepackage[top=3cm,inner=3.5cm,outer=2cm,bottom=3cm,headheight=120pt]{geometry}		% Dùng để set margin
-\usepackage{graphicx}			% Dùng để chèn hình ảnh 
+
+% Dùng để set margin
+\usepackage[top=3cm,inner=3.5cm,outer=2cm,bottom=3cm,headheight=120pt]{geometry}		
+
+\usepackage{graphicx}			% Dùng để chèn hình ảnh
 \graphicspath{ {images/} }		% Folder chứa hình ảnh
 \usepackage{subfiles}			% Dùng để chia thành các files nhỏ
 \usepackage{fancyhdr}			% Dùng để tạo header và footer
-\usepackage{listings}			% Dùng để chèn source code vào luận văn
 \usepackage{emptypage}			% Không đánh số trang, header, footer với các trang trắng
-
-% Định dạng mặc định cho source code
-\lstset {
-	basicstyle=\small\ttfamily, 	% Font family và font size 
-	numbers=left,					% Hiển thị số thứ tự dòng				
-	tabsize=4,						% Tab size 
-	frame=leftline,					% Hiển thị 1 gạch bên tay trái source code 
-	xleftmargin=1cm,				% Set margin-left 
-	breaklines=true,
-}
-
-% Tạo một style tên là code để định dạng source code
-\lstdefinestyle{code}{
-	basicstyle=\small\ttfamily, 	% Font family và font size 
-	numbers=left,					% Hiển thị số thứ tự dòng				
-	tabsize=4,						% Tab size 
-	frame=leftline,					% Hiển thị 1 gạch bên tay trái source code 
-	xleftmargin=1cm,				% Set margin-left 
-	breaklines=true,
-}
-
-% Tạo một style tên là link để đặt các liên kết trong báo cáo
-\lstdefinestyle{link}{
-	basicstyle=\small\ttfamily,
-	numbers=none,
-	tabsize=4,
-	frame=single,
-	xleftmargin=0.15cm,
-	xrightmargin=0.15cm,
-	breaklines=true,
-}
-
 \usepackage{tabularx}			% Dùng để chèn bảng
+
+% Định dạng cho code
+\usepackage{fancyvrb}		% Phiên bản nâng cao của verbatim, dùng để chèn code
+\fvset{
+	tabsize=4,				% Định tabsize 
+	frame=single,			% Khung
+}
 
 % Hiển thị dòng kẻ để viết tay (phần Nhận xét của giảng viên)
 \usepackage{pgffor, ifthen}
 \newcommand{\notes}[3][\empty]{
 	\noindent \vspace{15pt}\\
 	\foreach \n in {1,...,#2}{
-		\ifthenelse{\equal{#1}{\empty}}
-			{\rule{#3}{0.5pt}\vspace{15pt}\\}
-			{\rule{#3}{0.5pt}\vspace{15pt}\\}
+		\ifthenelse{
+			\equal{#1}{\empty}
 		}
+		{\rule{#3}{0.5pt}\vspace{15pt}\\}
+		{\rule{#3}{0.5pt}\vspace{15pt}\\}
 	}
+}
 
-\title{Google Cloud Translation API}	% Tiêu đề luận văn
-\author{Dương Lữ Điện}					% Người thực hiện 
+\title{Tên đề tài}						% Tiêu đề luận văn
+\author{Họ tên sinh viên}				% Người thực hiện 
 
 % Header và footer 
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{Giảng viên hướng dẫn:\\Học hàm. Học vị. Họ tên}			% Header bên phải
-\lhead{Đề tài:\\Tên đề tài}			% Header bên trái 
-\rfoot{\thepage}					% Footer bên phải
-\lfoot{Tên sinh viên - Mã sinh viên}	% Footer bên trái
+
+% Header và footer nếu in 2 mặt
+% \rhead{Giảng viên hướng dẫn:\\TS. ABCXYZ}				% Header bên phải
+% \lhead{Đề tài:\\Tên đề tài}							% Header bên trái
+% \fancyfoot[RO]{\thepage}								% Footer mép ngoài
+% \fancyfoot[LE]{\thepage}								% Footer mép ngoài
+% \fancyfoot[LO]{Họ tên sinh viên - Mã SV}				% Footer mép trong
+% \fancyfoot[RE]{Họ tên sinh viên - Mã SV}				% Footer mép trong
+
+% Header và footer nếu in 1 mặt
+\rhead{Giảng viên hướng dẫn:\\TS. ABCXYZ}					% Header bên phải
+\lhead{Đề tài:\\Tên đề tài}									% Header bên trái
+\rfoot{\thepage}											% Footer bên phải
+\lfoot{Họ tên sinh viên - Mã SV}							% Footer bên trái
 
 \begin{document}
 \subfile{bia-ngoai}		% Gọi file bìa ngoài
