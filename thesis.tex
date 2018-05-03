@@ -24,6 +24,9 @@
 \usepackage{emptypage}			% Không đánh số trang, header, footer với các trang trắng
 \usepackage{tabularx}			% Dùng để chèn bảng
 \usepackage{pdflscape}			% Một vài trang nằm ngang (landscape) thay vì dọc (portrait) (bảng, biểu đồ)
+\usepackage[square]{natbib}							% Dùng cho tài liệu tham khảo
+\setcitestyle{super}								% Ký hiệu tài liệu tham khảo dạng superscript
+\usepackage{url}									% Dùng cho URL
 
 % Định dạng cho code
 \usepackage{fancyvrb}			% Phiên bản nâng cao của verbatim, dùng để chèn code
@@ -90,7 +93,7 @@
 \chapter{Tiêu đề chương 2}
 \subfile{chapters/chapter02}
 
-\chapter*{THAM KHẢO}
-\subfile{chapters/tham-khao}
+\bibliography{mybib}{}
+\bibliographystyle{plain}
 
 \end{document}
